@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 function Textbox({ index, isChecked, value, onCheckboxChange, onInputChange }) {
   return (
     <div className="flex items-center space-x-2">
