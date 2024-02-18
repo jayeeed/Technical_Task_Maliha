@@ -4,7 +4,7 @@ This project is a full-stack web application built with React.js for the fronten
 
 # Prject Demo
 
-https://github.com/jayeeed/Technical_Task_Maliha/assets/137998593/8d6873d1-3b6a-452c-9e0b-1007e33771ac
+https://github.com/jayeeed/Technical_Task_Maliha/assets/137998593/73c062cf-d5d4-45e5-a96a-b6e7783d529b
 
 # Screen Shots
 
