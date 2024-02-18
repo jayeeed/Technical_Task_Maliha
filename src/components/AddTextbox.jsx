@@ -1,16 +1,17 @@
-/* eslint-disable react/prop-types */
 import { useState } from "react";
+import PropTypes from "prop-types";
 
-function AddTextbox({ onAddTextbox }) {
+const AddTextbox = ({ onAddTextbox }) => {
   const [numberOfTextBoxesInput, setNumberOfTextBoxesInput] = useState("");
 
-  const handleInputChange = (event) => {
-    setNumberOfTextBoxesInput(event.target.value);
+  const handleInputChange = ({ target: { value } }) => {
+    setNumberOfTextBoxesInput(value);
   };
 
   const handleAddTextbox = () => {
-    if (numberOfTextBoxesInput.trim() !== "") {
-      onAddTextbox(parseInt(numberOfTextBoxesInput, 10));
+    const number = numberOfTextBoxesInput.trim();
+    if (number !== "") {
+      onAddTextbox(parseInt(number, 10));
       setNumberOfTextBoxesInput("");
     }
   };
@@ -37,6 +38,10 @@ function AddTextbox({ onAddTextbox }) {
       </div>
     </div>
   );
-}
+};
+
+AddTextbox.propTypes = {
+  onAddTextbox: PropTypes.func.isRequired,
+};
 
 export default AddTextbox;

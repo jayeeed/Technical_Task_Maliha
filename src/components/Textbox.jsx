@@ -1,33 +1,36 @@
-/* eslint-disable react/prop-types */
-function Textbox({ index, isChecked, value, onCheckboxChange, onInputChange }) {
-  const handleCheckboxChange = (event) => {
-    onCheckboxChange(event, index);
-  };
+import PropTypes from "prop-types";
 
-  const handleInputChange = (event) => {
-    onInputChange(event, index);
-  };
+function Textbox({ index, isChecked, value, onCheckboxChange, onInputChange }) {
+  const identifier = index + 1;
 
   return (
     <div className="flex items-center space-x-2">
       <input
         type="checkbox"
-        id={`checkbox-${index + 1}`}
+        id={`checkbox-${identifier}`}
         checked={isChecked}
-        onChange={handleCheckboxChange}
+        onChange={(event) => onCheckboxChange(event, index)}
         className="h-5 w-5 text-blue-500 rounded"
       />
-      <label htmlFor={`textbox-${index + 1}`} className="block">
+      <label htmlFor={`textbox-${identifier}`} className="block">
         <input
           type="text"
-          id={`textbox-${index + 1}`}
+          id={`textbox-${identifier}`}
           value={value}
-          onChange={handleInputChange}
+          onChange={(event) => onInputChange(event, index)}
           className="block px-4 py-2 border rounded"
         />
       </label>
     </div>
   );
 }
+
+Textbox.propTypes = {
+  index: PropTypes.number.isRequired,
+  isChecked: PropTypes.bool.isRequired,
+  value: PropTypes.string.isRequired,
+  onCheckboxChange: PropTypes.func.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+};
 
 export default Textbox;

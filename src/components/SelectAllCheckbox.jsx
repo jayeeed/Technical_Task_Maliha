@@ -1,13 +1,16 @@
-/* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState, useCallback } from "react";
+import PropTypes from "prop-types";
 
-function SelectAllCheckbox({ onCheckboxChange }) {
+const SelectAllCheckbox = ({ onCheckboxChange }) => {
   const [allChecked, setAllChecked] = useState(false);
 
-  const handleCheckboxChange = (event) => {
-    setAllChecked(event.target.checked);
-    onCheckboxChange(event);
-  };
+  const handleCheckboxChange = useCallback(
+    (event) => {
+      setAllChecked(event.target.checked);
+      onCheckboxChange(event);
+    },
+    [onCheckboxChange]
+  );
 
   return (
     <div>
@@ -23,6 +26,10 @@ function SelectAllCheckbox({ onCheckboxChange }) {
       </label>
     </div>
   );
-}
+};
+
+SelectAllCheckbox.propTypes = {
+  onCheckboxChange: PropTypes.func.isRequired,
+};
 
 export default SelectAllCheckbox;
