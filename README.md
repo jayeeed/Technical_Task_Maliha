@@ -4,6 +4,15 @@ This project is a full-stack web application built with React.js for the fronten
 
 # Prject Demo
 
+https://github.com/jayeeed/Technical_Task_Maliha/assets/137998593/8d6873d1-3b6a-452c-9e0b-1007e33771ac
+
+# Screen Shots
+
+![vscode](https://github.com/jayeeed/Technical_Task_Maliha/assets/137998593/5f7751dc-ae8a-4e26-a7dd-961f34f035b2)
+![deploy selected](https://github.com/jayeeed/Technical_Task_Maliha/assets/137998593/873b5689-d7ef-4989-a73d-cd765ddb4e55)
+![deploy selected all](https://github.com/jayeeed/Technical_Task_Maliha/assets/137998593/12662e65-adc3-44fa-8345-8830846a5366)
+![deploy db](https://github.com/jayeeed/Technical_Task_Maliha/assets/137998593/2c815ada-9a5c-4ba6-8706-dbfc829e8993)
+
 ## Features
 
 - Add textboxes dynamically.
