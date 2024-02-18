@@ -4,7 +4,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  res.send("Welcome to this route!");
+  res.send("API running 🥳");
 });
 
 module.exports = router;
