@@ -1,5 +1,14 @@
 /* eslint-disable react/prop-types */
-function SelectAllCheckbox({ allChecked, onCheckboxChange }) {
+import { useState } from "react";
+
+function SelectAllCheckbox({ onCheckboxChange }) {
+  const [allChecked, setAllChecked] = useState(false);
+
+  const handleCheckboxChange = (event) => {
+    setAllChecked(event.target.checked);
+    onCheckboxChange(event);
+  };
+
   return (
     <div>
       <label htmlFor="all-checkbox" className="flex items-center">
@@ -8,7 +17,7 @@ function SelectAllCheckbox({ allChecked, onCheckboxChange }) {
           type="checkbox"
           id="all-checkbox"
           checked={allChecked}
-          onChange={onCheckboxChange}
+          onChange={handleCheckboxChange}
           className="ml-2 h-5 w-5 text-green-600 rounded"
         />
       </label>

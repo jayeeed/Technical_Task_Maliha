@@ -1,15 +1,15 @@
 import { useState } from "react";
-import Textbox from "./../components/Textbox";
 import AddTextbox from "./../components/AddTextbox";
 import SelectAllCheckbox from "./../components/SelectAllCheckbox";
+import Textbox from "./../components/Textbox";
 import Output from "./../components/Output";
+import SaveButton from "./../components/SaveButton";
 
 function Home() {
   const [numberOfTextBoxes, setNumberOfTextBoxes] = useState(0);
   const [allChecked, setAllChecked] = useState(false);
   const [selectedTextBoxes, setSelectedTextBoxes] = useState([]);
   const [textBoxValues, setTextBoxValues] = useState([]);
-  const [numberOfTextBoxesInput, setNumberOfTextBoxesInput] = useState("");
 
   const handleInputChange = (event, index) => {
     const values = [...textBoxValues];
@@ -39,30 +39,14 @@ function Home() {
     setAllChecked(selected.length === numberOfTextBoxes);
   };
 
-  const calculateTotal = () => {
-    let total = 0;
-    for (const index of selectedTextBoxes) {
-      const value = parseFloat(textBoxValues[index - 1] || 0);
-      total += value;
-    }
-    return total;
-  };
-
-  const handleAddTextbox = () => {
-    const num = parseInt(numberOfTextBoxesInput);
-    if (!isNaN(num) && num > 0) {
-      setNumberOfTextBoxes(num);
-      setTextBoxValues(Array(num).fill(""));
-    }
+  const handleAddTextbox = (num) => {
+    setNumberOfTextBoxes(num);
+    setTextBoxValues(Array(num).fill(""));
   };
 
   return (
-    <div className="p-8 flex flex-col items-center space-y-2">
-      <AddTextbox
-        numberOfTextBoxesInput={numberOfTextBoxesInput}
-        onInputChange={(e) => setNumberOfTextBoxesInput(e.target.value)}
-        onAddTextbox={handleAddTextbox}
-      />
+    <div className="p-8 flex flex-col items-center space-y-4">
+      <AddTextbox onAddTextbox={handleAddTextbox} />
       <SelectAllCheckbox
         allChecked={allChecked}
         onCheckboxChange={handleAllCheckboxChange}
@@ -80,7 +64,11 @@ function Home() {
       <Output
         selectedTextBoxes={selectedTextBoxes}
         numberOfTextBoxes={numberOfTextBoxes}
-        calculateTotal={calculateTotal}
+        textBoxValues={textBoxValues}
+      />
+      <SaveButton
+        selectedTextBoxes={selectedTextBoxes}
+        textBoxValues={textBoxValues}
       />
     </div>
   );
