@@ -4,6 +4,7 @@ const DataModel = require("../models/dataModel");
 const DataController = async (req, res) => {
   try {
     const Data = await DataModel.create(req.body);
+    console.log("Posted data:", req.body);
     return res.status(201).json({ message: "Data saved successfully", Data });
   } catch (error) {
     return res.status(500).json({ error: error.message });
